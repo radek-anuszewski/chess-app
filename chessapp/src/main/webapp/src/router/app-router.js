@@ -11,7 +11,7 @@ define(function (require) {
         },
         login: function () {
             const loginView = new LoginView({
-                model: new LoginModel(this),
+                model: new LoginModel(),
                 router: this,
             });
             loginView.render();
