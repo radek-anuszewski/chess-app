@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="chessapp:war exploded">
+    <output-path>$PROJECT_DIR$/chessapp/target/chess-app</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="chessapp" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/chessapp/target/chess-app/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="chessapp/web/Web" />
+    </root>
+  </artifact>
+</component>
