@@ -20,12 +20,13 @@ define(function (require) {
             this.router = router;
         },
         onLoginChange: function (event) {
-            this.model.set({login: $(event.target).val()});
+            this.model.set({login: this.ui.login.val()});
         },
         onPasswordChange: function (event) {
-            this.model.set({password: $(event.target).val()});
+            this.model.set({password: this.ui.password.val()});
         },
         onSubmit: function (event) {
+            alert(JSON.stringify(this.ui));
             event.preventDefault();
             if (this.model.get("login") === this.model.get("password")) {
                 this.router.navigate("home", {trigger: true});
