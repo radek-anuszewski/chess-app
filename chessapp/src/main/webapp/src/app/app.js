@@ -9,7 +9,6 @@ define(function (require) {
     app.on("start", function _startHistory () {
         router = new AppRouter();
         Backbone.history.start();
-        alert('started');
     });
 
     app.start();

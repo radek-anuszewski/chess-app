@@ -26,13 +26,15 @@ define(function (require) {
             this.model.set({password: this.ui.password.val()});
         },
         onSubmit: function (event) {
-            alert(JSON.stringify(this.ui));
             event.preventDefault();
-            if (this.model.get("login") === this.model.get("password")) {
-                this.router.navigate("home", {trigger: true});
-            }
-            else {
-                alert("Not logged!");
+            this.model.save().then(_onLoginRequest.bind(this));
+            function _onLoginRequest(response) {
+                if (response.logged) {
+                    this.router.navigate("home", {trigger: true});
+                }
+                else {
+                    alert('Not logged!');
+                }
             }
         },
     })
