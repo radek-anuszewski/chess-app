@@ -11,7 +11,10 @@ define(function (require) {
         },
         login: function () {
             const loginView = new LoginView({
-                model: new LoginModel(),
+                model: new LoginModel({
+                    loginMinLength: 5,
+                    passwordMinLength: 8,
+                }),
                 router: this,
             });
             loginView.render();

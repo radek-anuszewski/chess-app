@@ -21,10 +21,12 @@
             <div>
                 <label for="login"></label>
                 <input type="text" id="login">
+                <p id="login-invalid"></p>
             </div>
             <div>
                 <label for="password"></label>
                 <input type="password" id="password">
+                <p id="password-invalid"></p>
             </div>
             <div>
                 <button type="submit">
