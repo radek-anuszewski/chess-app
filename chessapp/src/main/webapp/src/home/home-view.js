@@ -19,8 +19,9 @@ define(function (require) {
         _getRows: function () {
             const RowModel = Backbone.Model.extend({
                 initialize ({index}) {
-                    this.even = !!(!(index % 2));
                     this.odd = !!(index % 2);
+                    this.even = !(this.odd);
+                    this.index = index;
                 },
             });
             const Rows = Backbone.Collection.extend({
@@ -29,7 +30,7 @@ define(function (require) {
             const rows = new Rows();
             for (let index = 0; index < 8; index++) {
                 rows.add(new RowModel({
-                    index,
+                    index: (index + 1),
                 }));
             }
             return rows;

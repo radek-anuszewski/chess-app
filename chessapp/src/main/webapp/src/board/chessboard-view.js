@@ -2,6 +2,8 @@ define(function (require) {
     const Mn = require("backbone.marionette");
     const _ = require('underscore');
     const $ = require('jquery');
+    const WhiteRowView = require('./white-row-view');
+    const BlackRowView = require('./black-row-view');
 
     return Mn.CollectionView.extend({
         // el: "#chessboard-fields", Why kurwa!?!?!?!?!
@@ -9,16 +11,10 @@ define(function (require) {
         template: _.template($("#chessboard-view").html()),
         childView: function (item) {
             if (item.odd) {
-                return Mn.View.extend({
-                    template: _.template('Odd row<br>'),
-                    tagName: 'section',
-                });
+                return WhiteRowView;
             }
             if (item.even) {
-                return Mn.View.extend({
-                    template: _.template('Even row<br>'),
-                    tagName: 'section',
-                });
+                return BlackRowView;
             }
         },
         // Use attach HTML in some way
