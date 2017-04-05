@@ -13,7 +13,7 @@ define(function (require) {
             if (item.get("odd")) {
                 return WhiteRowView;
             }
-            if (item.get()) {
+            if (item.get("even")) {
                 return BlackRowView;
             }
         },

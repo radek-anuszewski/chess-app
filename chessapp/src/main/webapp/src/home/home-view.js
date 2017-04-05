@@ -21,8 +21,8 @@ define(function (require) {
             for (let index = 0; index < 8; index++) {
                 rows.push({
                     index: (index + 1),
-                    odd: !!(index % 2),
-                    even: !(index % 2),
+                    odd: !!((index + 1) % 2),
+                    even: !((index + 1) % 2),
                 });
             }
             return new Backbone.Collection(rows);
