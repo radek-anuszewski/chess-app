@@ -17,23 +17,15 @@ define(function (require) {
             }));
         },
         _getRows: function () {
-            const RowModel = Backbone.Model.extend({
-                initialize ({index}) {
-                    this.odd = !!(index % 2);
-                    this.even = !(this.odd);
-                    this.index = index;
-                },
-            });
-            const Rows = Backbone.Collection.extend({
-                model: RowModel,
-            });
-            const rows = new Rows();
+            const rows = [];
             for (let index = 0; index < 8; index++) {
-                rows.add(new RowModel({
+                rows.push({
                     index: (index + 1),
-                }));
+                    odd: !!(index % 2),
+                    even: !(index % 2),
+                });
             }
-            return rows;
+            return new Backbone.Collection(rows);
         },
     });
 });

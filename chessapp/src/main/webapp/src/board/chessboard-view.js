@@ -10,10 +10,10 @@ define(function (require) {
         tagName: 'article',
         template: _.template($("#chessboard-view").html()),
         childView: function (item) {
-            if (item.odd) {
+            if (item.get("odd")) {
                 return WhiteRowView;
             }
-            if (item.even) {
+            if (item.get()) {
                 return BlackRowView;
             }
         },
