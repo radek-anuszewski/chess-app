@@ -18,7 +18,7 @@ define(function (require) {
         },
         _getRows: function () {
             const rows = [];
-            for (let index = 0; index < 8; index++) {
+            for (let index = 0; index < 10; index++) {
                 rows.push({
                     index: (index + 1),
                     odd: !!((index + 1) % 2),

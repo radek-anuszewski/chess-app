@@ -19,7 +19,7 @@ define(function (require) {
         tagName: 'section',
         onRender: function () {
             this.$el.addClass(`starts-with-white`);
-            this.$el.attr(`id`, `row-${this.model.get(`index`)}`);
+            this.$el.attr(`id`, `row-${this.model.get(`index`) - 1}`);
         },
     });
 });
