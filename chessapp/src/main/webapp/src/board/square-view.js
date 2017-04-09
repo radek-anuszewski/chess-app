@@ -3,7 +3,7 @@ define(function (require) {
     const _ = require("underscore");
 
     return Mn.View.extend({
-        template: _.template(``),
+        template: _.template(`<span></span>`),
         tagName: "p",
         onRender: function () {
             this.$el.css("display", "inline-block");
