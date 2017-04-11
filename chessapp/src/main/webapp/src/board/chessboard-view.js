@@ -7,7 +7,7 @@ define(function (require) {
     const CharactersRowView = require('./characters-row-view');
 
     return Mn.CollectionView.extend({
-        tagName: 'article',
+        tagName: "article",
         template: _.template($("#chessboard-view").html()),
         childView: function (item) {
             if (item.get("index") === 1 || item.get("index") === 10) {

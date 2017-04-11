@@ -12,7 +12,7 @@ define(function (require) {
         },
         template: _.template($("#home-view").html()),
         onRender: function () {
-            this.showChildView('chessboard', new ChessboardView({
+            this.showChildView("chessboard", new ChessboardView({
                 collection: this._getRows(),
             }));
         },
@@ -20,7 +20,7 @@ define(function (require) {
             const rows = [];
             for (let index = 0; index < 10; index++) {
                 rows.push({
-                    index: (index + 1),
+                    index: (10 - index),
                     odd: !!((index + 1) % 2),
                     even: !((index + 1) % 2),
                 });
