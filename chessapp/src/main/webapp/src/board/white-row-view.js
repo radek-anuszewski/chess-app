@@ -5,6 +5,7 @@ define(function (require) {
     const SquareView = require("./square-view");
     const _ = require("underscore");
     const characters = require("./constants/constants").characters();
+    const RowOrderBehavior = require("./row-order-behavior");
 
     return Mn.CollectionView.extend({
         template: _.template(`<div></div><br>`),
@@ -22,9 +23,11 @@ define(function (require) {
         ]),
         childView: SquareView,
         tagName: "section",
-        onRender: function () {
-            this.$el.addClass("row-section starts-with-white");
-            this.$el.attr("id", `row-${this.model.get("index") - 1}`);
-        },
+        behaviors: [
+            {
+                behaviorClass: RowOrderBehavior,
+                color: "white",
+            },
+        ],
     });
 });

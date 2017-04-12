@@ -11,6 +11,6 @@ define(() => {
         {character: "h"},
     ];
     return {
-        characters: () => characters.slice(),
+        characters: () => [...characters],
     };
 });
