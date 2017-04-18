@@ -49,6 +49,25 @@
             left: 18px;
             top: 15px;
         }
+        .col-small,
+        .col-medium,
+        .col-large {
+            display: block;
+            float: left;
+        }
+        .col-small {
+            width: 37.5%;
+        }
+        .col-medium {
+            width: 50%;
+        }
+        .col-large {
+            width: 62.5%;
+        }
+
+        .text-center {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -67,9 +86,33 @@
         </article>
     </script>
     <script type="marionette-template" id="home-view">
-        You are logged
-        <article id="chessboard"></article>
+        <article class="col-large">You are logged</article>
+        <article class="col-small">
+            <h2 class="text-center">
+                Moves
+            </h2>
+        </article>
+        <article id="chessboard" class="col-large"></article>
+        <article id="moves-display" class="col-small"></article>
     </script>
+    <script type="marionette-template" id="moves-tab-view">
+        <div id="moves-tab">
+            <section id="white-moves" class="col-medium">
+                <article>
+                    <h3 class="text-center">White moves:</h3>
+                    <section id="white-moves-region">
+                    </section>
+                </article>
+            </section>
+            <section id="black-moves" class="col-medium">
+                <article>
+                    <h3 class="text-center">Black moves:</h3>
+                    <section id="black-moves-region">
+                    </section>
+                </article>
+            </section>
+        </div>
+</script>
     <script type="marionette-template" id="login-view">
         <form id="login-form" name="login-form">
             <div>

@@ -4,7 +4,7 @@
     <option browser="true" />
     <option es6="true" />
     <option maxerr="50" />
-    <option globals="define" />
+    <option globals="define,alert" />
     <option this="true" />
   </component>
 </project>

@@ -2,10 +2,14 @@ define(function (require) {
     "use strict";
     const Mn = require("backbone.marionette");
     const _ = require("underscore");
+    const Radio = require("backbone.radio");
 
     return Mn.View.extend({
         template: _.template(`<span></span>`),
         tagName: "p",
+        initialize: function () {
+            this.fieldClickedChannel = new Radio.channel("fieldClick");
+        },
         events: {
             "click": "onFieldClicked",
         },
@@ -26,7 +30,12 @@ define(function (require) {
             if (!this._isChessboardField()) {
                 return;
             }
-            alert(`${this.model.get("character")}${this._getRowNumber()}`);
+            this.fieldClickedChannel.trigger("field:clicked", {
+                clickedField: this._getClickedField(),
+            });
+        },
+        _getClickedField: function () {
+            return this.model.get("character") + this._getRowNumber();
         },
         _getRowNumber: function () {
             const id = this.$el.parent().attr("id");

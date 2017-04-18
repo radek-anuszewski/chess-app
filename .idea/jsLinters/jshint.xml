@@ -15,7 +15,7 @@
     <option elision="false" />
     <option enforceall="false" />
     <option eqeqeq="true" />
-    <option eqnull="false" />
+    <option eqnull="true" />
     <option es3="false" />
     <option es5="false" />
     <option esnext="false" />
