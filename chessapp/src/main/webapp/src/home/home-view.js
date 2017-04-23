@@ -6,20 +6,26 @@ define(function (require) {
     const ChessboardView = require("../board/chessboard-view");
     const MovesTabView = require("../moves/moves-tab-view");
 
-    return Mn.View.extend({
-        el: "#main",
-        regions: {
-            chessboard: "#chessboard",
-            movesDisplay: "#moves-display",
-        },
-        template: _.template($("#home-view").html()),
-        onRender: function () {
+    class HomeView extends Mn.View {
+        el() {
+            return "#main"
+        }
+        regions() {
+            return {
+                chessboard: "#chessboard",
+                movesDisplay: "#moves-display",
+            }
+        }
+        template() {
+            return _.template($("#home-view").html())
+        }
+        onRender() {
             this.showChildView("chessboard", new ChessboardView({
                 collection: this._getRows(),
             }));
             this.showChildView("movesDisplay", new MovesTabView());
-        },
-        _getRows: function () {
+        }
+        _getRows() {
             const rows = [];
             for (let index = 0; index < 10; index++) {
                 rows.push({
@@ -29,6 +35,7 @@ define(function (require) {
                 });
             }
             return new Backbone.Collection(rows);
-        },
-    });
+        }
+    }
+    return HomeView;
 });

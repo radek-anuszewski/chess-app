@@ -6,16 +6,21 @@ define(function (require) {
     const Radio = require("backbone.radio");
     const _ = require("underscore");
     const $ = require("jquery");
-    return Mn.View.extend({
-        template: _.template($("#moves-tab-view").html()),
-        tagName: "div",
-        initialize: function () {
+
+    class MovesTabView extends Mn.View {
+        tagName () {
+            return "div";
+        }
+        template () {
+          return _.template($("#moves-tab-view").html());
+        }
+        initialize () {
             this.whiteMoves = new Backbone.Collection();
             this.blackMoves = new Backbone.Collection();
             this.movesChannel = Radio.channel("chessboardMoves");
             this.listenTo(this.movesChannel, "move", this.onMove);
-        },
-        onDomRefresh: function () {
+        }
+        onDomRefresh () {
             if (!(this.getRegions().whiteMovesRegion)) {
                 this.addRegion("whiteMovesRegion", "#white-moves-region");
                 this.showChildView("whiteMovesRegion", new MovesView({
@@ -28,8 +33,8 @@ define(function (require) {
                     collection: this.blackMoves,
                 }));
             }
-        },
-        onMove: function ({color, from, to}) {
+        }
+        onMove ({color, from, to}) {
             if (color === "white") {
                 this.whiteMoves.push({
                     from,
@@ -43,5 +48,7 @@ define(function (require) {
                 });
             }
         }
-    });
+    }
+    
+    return MovesTabView;
 });
